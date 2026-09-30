@@ -17,14 +17,14 @@
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
 --radius:.625rem;--radius-sm:calc(var(--radius) - 4px);--radius-md:calc(var(--radius) - 2px);
 --background:oklch(1 0 0);--foreground:oklch(0.129 0.042 264.695);--card:oklch(1 0 0);
---primary:oklch(0.208 0.042 265.755);--primary-foreground:oklch(0.984 0.003 247.858);
+--primary:oklch(0.46 0.2 293);--primary-foreground:oklch(0.985 0 0);
 --secondary:oklch(0.968 0.007 247.896);--muted-foreground:oklch(0.554 0.046 257.417);
 --destructive:oklch(0.577 0.245 27.325);--border:oklch(0.929 0.013 255.508);--input:oklch(0.929 0.013 255.508);--ring:oklch(0.704 0.04 256.788);
 --font-ui:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--font-read:var(--font-ui);--font-pen:var(--font-ui);}
 :root{--page:var(--background);--sheet:var(--card);--sheet-2:var(--secondary);--ink:var(--foreground);--soft:var(--muted-foreground);--rule:var(--border);--blue:var(--primary);
---blue-2:color-mix(in oklab,var(--primary) 7%,var(--card));--pen:var(--destructive);--pen-2:color-mix(in oklab,var(--destructive) 10%,var(--card));--amber:oklch(0.769 0.188 70.08)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--background:oklch(0.129 0.042 264.695);--foreground:oklch(0.984 0.003 247.858);--card:oklch(0.208 0.042 265.755);--primary:oklch(0.929 0.013 255.508);--primary-foreground:oklch(0.208 0.042 265.755);--secondary:oklch(0.279 0.041 260.031);--muted-foreground:oklch(0.704 0.04 256.788);--destructive:oklch(0.704 0.191 22.216);--border:oklch(1 0 0/10%);--input:oklch(1 0 0/15%);--ring:oklch(0.551 0.027 264.364)}}
-:root[data-theme="dark"]{--background:oklch(0.129 0.042 264.695);--foreground:oklch(0.984 0.003 247.858);--card:oklch(0.208 0.042 265.755);--primary:oklch(0.929 0.013 255.508);--primary-foreground:oklch(0.208 0.042 265.755);--secondary:oklch(0.279 0.041 260.031);--muted-foreground:oklch(0.704 0.04 256.788);--destructive:oklch(0.704 0.191 22.216);--border:oklch(1 0 0/10%);--input:oklch(1 0 0/15%);--ring:oklch(0.551 0.027 264.364)}
+--blue-2:color-mix(in oklab,var(--primary) 10%,var(--card));--link:color-mix(in oklab,var(--primary) 78%,var(--foreground));--pen:var(--destructive);--pen-2:color-mix(in oklab,var(--destructive) 10%,var(--card));--amber:oklch(0.769 0.188 70.08)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--background:oklch(0.129 0.042 264.695);--foreground:oklch(0.984 0.003 247.858);--card:oklch(0.208 0.042 265.755);--primary:oklch(0.66 0.19 293);--primary-foreground:oklch(0.985 0 0);--secondary:oklch(0.279 0.041 260.031);--muted-foreground:oklch(0.704 0.04 256.788);--destructive:oklch(0.704 0.191 22.216);--border:oklch(1 0 0/10%);--input:oklch(1 0 0/15%);--ring:oklch(0.551 0.027 264.364)}}
+:root[data-theme="dark"]{--background:oklch(0.129 0.042 264.695);--foreground:oklch(0.984 0.003 247.858);--card:oklch(0.208 0.042 265.755);--primary:oklch(0.66 0.19 293);--primary-foreground:oklch(0.985 0 0);--secondary:oklch(0.279 0.041 260.031);--muted-foreground:oklch(0.704 0.04 256.788);--destructive:oklch(0.704 0.191 22.216);--border:oklch(1 0 0/10%);--input:oklch(1 0 0/15%);--ring:oklch(0.551 0.027 264.364)}
 
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -151,6 +151,22 @@ header.top{padding:28px 0 8px}
 .ctl{display:flex;flex-wrap:wrap;gap:8px}.ctl .btn{padding:12px 18px;flex:1 1 auto}
 .res .pen{transform:none}
 
+
+.gh{border-bottom:0;padding-bottom:10px}.gh h3{color:var(--link);font-weight:700}
+.seg{display:flex;gap:6px;padding:0 20px 14px;border-bottom:1px solid var(--rule)}
+.seg i{flex:1;height:5px;border-radius:3px;background:color-mix(in oklab,var(--foreground) 12%,var(--card))}
+.seg i.d{background:var(--primary)}.seg i.c{background:var(--pen)}
+.steps li.ready .st{color:var(--pen)}
+.cmp>summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 20px;border-top:1px solid var(--rule);cursor:pointer;font-size:.9rem;color:var(--soft);font-weight:400}
+.cmp>summary::-webkit-details-marker,.prac>summary::-webkit-details-marker{display:none}
+.cmp .lk,.prac .lk{color:var(--link);font-weight:600}
+.cmp .dn{opacity:.5}.cmp{margin:0}.cmp>.steps{border-top:1px solid var(--rule)}
+.vl>summary{justify-content:flex-start;color:var(--foreground);font-size:1rem}
+.vl>summary::before{content:"▸";color:var(--soft)}.vl[open]>summary::before{content:"▾"}
+.prow{align-items:flex-start;border-top:1px solid var(--rule)}
+.prac>summary{list-style:none;display:inline-block;padding:9px 18px}
+.prac .pr{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+@media (max-width:560px){.seg,.cmp>summary{padding-left:14px;padding-right:14px}.cmp>summary{flex-wrap:wrap}}
 </style>
 <script>
 (function(){
@@ -547,17 +563,21 @@ function groupCardHTML(c,g){
   if(stt.mastered)badge='<span class="badge">Mastered</span>';
   else if(stt.trained)badge='<span class="badge mid">Training complete</span>';
   const started=Object.keys(gs.steps).length>0;
+  const cur=av.find(x=>!x.done);
+  const seg='<div class="seg" aria-hidden="true">'+av.map(x=>'<i class="'+(x.done?'d':(x===cur?'c':''))+'"></i>').join('')+'</div>';
   const sc=[];
   ['pre','t1','t2'].forEach(k=>{const r=gs.steps[k];const nm={pre:'Pre-test',t1:'Post-test 1',t2:'Post-test 2'}[k];if(r&&r.pct!=null)sc.push('<span>'+nm+': <b>'+Math.round(r.pct*100)+'%</b></span>');});
-  return '<section class="gcard" id="g'+c.key+gid+'"><div class="gh"><span class="no">Group '+gid+'</span><h3>'+esc(g.name)+'</h3><span class="hint">'+itemsOf(c,g).length+' '+c.itemsLabel+'</span>'+badge+'</div>'+
-   '<ol class="steps">'+av.map(x=>stepRowHTML(c,gid,x)).join('')+'</ol>'+
+  const row=cur?'<ol class="steps">'+stepRowHTML(c,gid,cur)+'</ol>':'<div class="in"><p style="margin:0">All steps in this group are done.</p></div>';
+  const days=av.map(x=>'<span class="'+(x.done?'dn':'')+'">Day '+x.st.day+'</span>').join(' · ');
+  return '<section class="gcard" id="g'+c.key+gid+'"><div class="gh"><span class="no">Group '+gid+'</span><h3>'+esc(g.name)+'</h3><span class="hint">'+itemsOf(c,g).length+' '+c.itemsLabel+'</span>'+badge+'</div>'+seg+row+
    (sc.length?'<div class="gf"><p class="scores">'+sc.join('')+'</p></div>':'')+
-   '<div class="gf"><span>Extra practice (not part of the schedule):</span>'+
+   '<details class="cmp"><summary><span class="days">'+days+'</span><span class="lk">Upcoming steps</span></summary><ol class="steps">'+av.map(x=>stepRowHTML(c,gid,x)).join('')+'</ol></details>'+
+   '<div class="gf prow"><details class="prac"><summary class="btn">Practice <span class="lk">+</span></summary><div class="pr"><span class="hint">Extra practice, not saved to the schedule:</span>'+
    '<button class="btn small" data-act="extra" data-c="'+c.key+'" data-g="'+gid+'" data-k="study">Teaching</button>'+
    '<button class="btn small" data-act="extra" data-c="'+c.key+'" data-g="'+gid+'" data-k="retrieval">Retrieval</button>'+
-   '<button class="btn small" data-act="extra" data-c="'+c.key+'" data-g="'+gid+'" data-k="test">Test</button>'+
-   '<span class="sp">'+(started?'<button class="linkbtn" data-act="reset" data-c="'+c.key+'" data-g="'+gid+'">Start this group over</button>':'')+'</span></div>'+
-   '<div class="gf" style="display:block"><details style="margin:0"><summary>'+cap(c.itemsLabel)+' in this group</summary>'+itemsTableHTML(c,gid)+'</details></div></section>';
+   '<button class="btn small" data-act="extra" data-c="'+c.key+'" data-g="'+gid+'" data-k="test">Test</button></div></details>'+
+   '<span class="sp">'+(started?'<button class="linkbtn" data-act="reset" data-c="'+c.key+'" data-g="'+gid+'">Start over</button>':'')+'</span></div>'+
+   '<details class="cmp vl"><summary><b>'+cap(c.itemsLabel)+' in this group</b></summary><div class="in">'+itemsTableHTML(c,gid)+'</div></details></section>';
 }
 function dueHTML(c){
   const items=[];
