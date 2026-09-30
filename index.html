@@ -167,6 +167,12 @@ header.top{padding:28px 0 8px}
 .prac>summary{list-style:none;display:inline-block;padding:9px 18px}
 .prac .pr{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
 @media (max-width:560px){.seg,.cmp>summary{padding-left:14px;padding-right:14px}.cmp>summary{flex-wrap:wrap}}
+.ctl2{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.ctl2 .btn{padding:12px 18px;flex:1 1 auto}
+.btn.mk[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:var(--primary-foreground)}
+.en .star{color:var(--pen);margin-left:.25em}
+.mklist{list-style:none;margin:6px 0 0;padding:0;font-size:.95rem}
+.mklist li{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:4px 0;border-top:1px solid var(--rule)}
+.mklist li:first-child{border-top:0}
 </style>
 <script>
 (function(){
@@ -234,12 +240,12 @@ const STEPS=[
  {id:'t2',label:'Post-test 2',kind:'test',gap:10,day:28}
 ];
 
-/* ================= collections: verbs (3 forms) and vocabulary (1 form) ================= */
-const GROUPS_VERB=[{"id": 1, "name": "Core verbs", "verbs": [["vara", "är", "var", "to be"], ["ha", "har", "hade", "to have"], ["göra", "gör", "gjorde", "to do, to make"], ["gå", "går", "gick", "to walk, to go"], ["komma", "kommer", "kom", "to come"], ["se", "ser", "såg", "to see"], ["ta", "tar", "tog", "to take"], ["få", "får", "fick", "to get, to be allowed to"], ["säga", "säger", "sa", "to say"], ["vilja", "vill", "ville", "to want"], ["kunna", "kan", "kunde", "can, to be able to"], ["veta", "vet", "visste", "to know (a fact)"], ["bli", "blir", "blev", "to become"], ["ge", "ger", "gav", "to give"], ["sitta", "sitter", "satt", "to sit"], ["stå", "står", "stod", "to stand"], ["ligga", "ligger", "låg", "to lie (be lying)"], ["äta", "äter", "åt", "to eat"], ["dricka", "dricker", "drack", "to drink"], ["sova", "sover", "sov", "to sleep"], ["skriva", "skriver", "skrev", "to write"], ["läsa", "läser", "läste", "to read"], ["köpa", "köper", "köpte", "to buy"], ["tycka", "tycker", "tyckte", "to think (have an opinion)"], ["tänka", "tänker", "tänkte", "to think (reason)"], ["förstå", "förstår", "förstod", "to understand"], ["hitta", "hittar", "hittade", "to find"], ["heta", "heter", "hette", "to be called"], ["bo", "bor", "bodde", "to live (reside)"], ["börja", "börjar", "började", "to begin"]]}, {"id": 2, "name": "Daily life and work", "verbs": [["arbeta", "arbetar", "arbetade", "to work"], ["jobba", "jobbar", "jobbade", "to have a job (informal work)"], ["studera", "studerar", "studerade", "to study"], ["träna", "tränar", "tränade", "to train, to exercise"], ["laga", "lagar", "lagade", "to cook, to repair"], ["baka", "bakar", "bakade", "to bake"], ["städa", "städar", "städade", "to clean"], ["tvätta", "tvättar", "tvättade", "to wash"], ["duscha", "duschar", "duschade", "to shower"], ["vakna", "vaknar", "vaknade", "to wake up"], ["vila", "vilar", "vilade", "to rest"], ["spela", "spelar", "spelade", "to play (a game, an instrument)"], ["titta", "tittar", "tittade", "to look, to watch"], ["lyssna", "lyssnar", "lyssnade", "to listen"], ["prata", "pratar", "pratade", "to talk, to chat"], ["tala", "talar", "talade", "to speak"], ["fråga", "frågar", "frågade", "to ask (a question)"], ["handla", "handlar", "handlade", "to shop"], ["betala", "betalar", "betalade", "to pay"], ["kosta", "kostar", "kostade", "to cost"], ["öppna", "öppnar", "öppnade", "to open"], ["stänga", "stänger", "stängde", "to close"], ["hämta", "hämtar", "hämtade", "to fetch, to pick up"], ["lämna", "lämnar", "lämnade", "to leave, to hand in"], ["plocka", "plockar", "plockade", "to pick"], ["resa", "reser", "reste", "to travel, to go on a trip"], ["åka", "åker", "åkte", "to go (by vehicle), to ride"], ["köra", "kör", "körde", "to drive"], ["cykla", "cyklar", "cyklade", "to cycle"], ["simma", "simmar", "simmade", "to swim"]]}, {"id": 3, "name": "People, thoughts and feelings", "verbs": [["berätta", "berättar", "berättade", "to tell (a story)"], ["förklara", "förklarar", "förklarade", "to explain"], ["presentera", "presenterar", "presenterade", "to introduce, to present"], ["hälsa", "hälsar", "hälsade", "to greet"], ["ringa", "ringer", "ringde", "to call, to phone"], ["träffa", "träffar", "träffade", "to meet"], ["bjuda", "bjuder", "bjöd", "to invite, to treat"], ["umgås", "umgås", "umgicks", "to socialise, to hang out"], ["trivas", "trivs", "trivdes", "to enjoy oneself, to feel at home"], ["gilla", "gillar", "gillade", "to like (informal)"], ["älska", "älskar", "älskade", "to love"], ["känna", "känner", "kände", "to feel, to know (a person)"], ["glömma", "glömmer", "glömde", "to forget"], ["komma ihåg", "kommer ihåg", "kom ihåg", "to remember"], ["bestämma", "bestämmer", "bestämde", "to decide"], ["välja", "väljer", "valde", "to choose"], ["försöka", "försöker", "försökte", "to try"], ["hoppas", "hoppas", "hoppades", "to hope"], ["hjälpa", "hjälper", "hjälpte", "to help"], ["behöva", "behöver", "behövde", "to need"], ["använda", "använder", "använde", "to use"], ["besöka", "besöker", "besökte", "to visit"], ["söka", "söker", "sökte", "to search for, to apply for"], ["flytta", "flyttar", "flyttade", "to move (house)"], ["leva", "lever", "levde", "to be alive, to live"], ["sluta", "slutar", "slutade", "to stop, to quit"], ["vänta", "väntar", "väntade", "to wait"], ["skratta", "skrattar", "skrattade", "to laugh"], ["be", "ber", "bad", "to ask for, to request"], ["lära", "lär", "lärde", "to teach"]]}, {"id": 4, "name": "More verbs", "verbs": [["bära", "bär", "bar", "to carry, to wear"], ["dra", "drar", "drog", "to pull"], ["hålla", "håller", "höll", "to hold"], ["hinna", "hinner", "hann", "to have time to"], ["njuta", "njuter", "njöt", "to enjoy"], ["sjunga", "sjunger", "sjöng", "to sing"], ["slå", "slår", "slog", "to hit, to beat"], ["springa", "springer", "sprang", "to run"], ["vinna", "vinner", "vann", "to win"], ["förlora", "förlorar", "förlorade", "to lose"], ["beskriva", "beskriver", "beskrev", "to describe"], ["passa", "passar", "passade", "to fit, to suit"], ["sälja", "säljer", "sålde", "to sell"], ["leka", "leker", "lekte", "to play (as children do)"], ["följa", "följer", "följde", "to follow"], ["höra", "hör", "hörde", "to hear"], ["lägga", "lägger", "lade", "to lay, to put down"], ["sätta", "sätter", "satte", "to put, to set"], ["finnas", "finns", "fanns", "to exist, to be (there)"], ["nå", "når", "nådde", "to reach"], ["tro", "tror", "trodde", "to believe"], ["må", "mår", "mådde", "to feel (well or unwell)"], ["klä", "klär", "klädde", "to dress"], ["sy", "syr", "sydde", "to sew"], ["visa", "visar", "visade", "to show"], ["bygga", "bygger", "byggde", "to build"], ["stanna", "stannar", "stannade", "to stay, to stop"], ["räkna", "räknar", "räknade", "to count, to calculate"], ["ändra", "ändrar", "ändrade", "to change (alter)"], ["låna", "lånar", "lånade", "to borrow, to lend"]]}];
+/* ================= collections: verbs (4 forms) and vocabulary (1 form) ================= */
+const GROUPS_VERB=[{"id": 1, "name": "Core verbs", "verbs": [["vara", "är", "var", "varit", "to be"], ["ha", "har", "hade", "haft", "to have"], ["göra", "gör", "gjorde", "gjort", "to do, to make"], ["gå", "går", "gick", "gått", "to walk, to go"], ["komma", "kommer", "kom", "kommit", "to come"], ["se", "ser", "såg", "sett", "to see"], ["ta", "tar", "tog", "tagit", "to take"], ["få", "får", "fick", "fått", "to get, to be allowed to"], ["säga", "säger", "sa", "sagt", "to say"], ["vilja", "vill", "ville", "velat", "to want"], ["kunna", "kan", "kunde", "kunnat", "can, to be able to"], ["veta", "vet", "visste", "vetat", "to know (a fact)"], ["bli", "blir", "blev", "blivit", "to become"], ["ge", "ger", "gav", "gett", "to give"], ["sitta", "sitter", "satt", "suttit", "to sit"], ["stå", "står", "stod", "stått", "to stand"], ["ligga", "ligger", "låg", "legat", "to lie (be lying)"], ["äta", "äter", "åt", "ätit", "to eat"], ["dricka", "dricker", "drack", "druckit", "to drink"], ["sova", "sover", "sov", "sovit", "to sleep"], ["skriva", "skriver", "skrev", "skrivit", "to write"], ["läsa", "läser", "läste", "läst", "to read"], ["köpa", "köper", "köpte", "köpt", "to buy"], ["tycka", "tycker", "tyckte", "tyckt", "to think (have an opinion)"], ["tänka", "tänker", "tänkte", "tänkt", "to think (reason)"], ["förstå", "förstår", "förstod", "förstått", "to understand"], ["hitta", "hittar", "hittade", "hittat", "to find"], ["heta", "heter", "hette", "hetat", "to be called"], ["bo", "bor", "bodde", "bott", "to live (reside)"], ["börja", "börjar", "började", "börjat", "to begin"]]}, {"id": 2, "name": "Daily life and work", "verbs": [["arbeta", "arbetar", "arbetade", "arbetat", "to work"], ["jobba", "jobbar", "jobbade", "jobbat", "to have a job (informal work)"], ["studera", "studerar", "studerade", "studerat", "to study"], ["träna", "tränar", "tränade", "tränat", "to train, to exercise"], ["laga", "lagar", "lagade", "lagat", "to cook, to repair"], ["baka", "bakar", "bakade", "bakat", "to bake"], ["städa", "städar", "städade", "städat", "to clean"], ["tvätta", "tvättar", "tvättade", "tvättat", "to wash"], ["duscha", "duschar", "duschade", "duschat", "to shower"], ["vakna", "vaknar", "vaknade", "vaknat", "to wake up"], ["vila", "vilar", "vilade", "vilat", "to rest"], ["spela", "spelar", "spelade", "spelat", "to play (a game, an instrument)"], ["titta", "tittar", "tittade", "tittat", "to look, to watch"], ["lyssna", "lyssnar", "lyssnade", "lyssnat", "to listen"], ["prata", "pratar", "pratade", "pratat", "to talk, to chat"], ["tala", "talar", "talade", "talat", "to speak"], ["fråga", "frågar", "frågade", "frågat", "to ask (a question)"], ["handla", "handlar", "handlade", "handlat", "to shop"], ["betala", "betalar", "betalade", "betalat", "to pay"], ["kosta", "kostar", "kostade", "kostat", "to cost"], ["öppna", "öppnar", "öppnade", "öppnat", "to open"], ["stänga", "stänger", "stängde", "stängt", "to close"], ["hämta", "hämtar", "hämtade", "hämtat", "to fetch, to pick up"], ["lämna", "lämnar", "lämnade", "lämnat", "to leave, to hand in"], ["plocka", "plockar", "plockade", "plockat", "to pick"], ["resa", "reser", "reste", "rest", "to travel, to go on a trip"], ["åka", "åker", "åkte", "åkt", "to go (by vehicle), to ride"], ["köra", "kör", "körde", "kört", "to drive"], ["cykla", "cyklar", "cyklade", "cyklat", "to cycle"], ["simma", "simmar", "simmade", "simmat", "to swim"]]}, {"id": 3, "name": "People, thoughts and feelings", "verbs": [["berätta", "berättar", "berättade", "berättat", "to tell (a story)"], ["förklara", "förklarar", "förklarade", "förklarat", "to explain"], ["presentera", "presenterar", "presenterade", "presenterat", "to introduce, to present"], ["hälsa", "hälsar", "hälsade", "hälsat", "to greet"], ["ringa", "ringer", "ringde", "ringt", "to call, to phone"], ["träffa", "träffar", "träffade", "träffat", "to meet"], ["bjuda", "bjuder", "bjöd", "bjudit", "to invite, to treat"], ["umgås", "umgås", "umgicks", "umgåtts", "to socialise, to hang out"], ["trivas", "trivs", "trivdes", "trivts", "to enjoy oneself, to feel at home"], ["gilla", "gillar", "gillade", "gillat", "to like (informal)"], ["älska", "älskar", "älskade", "älskat", "to love"], ["känna", "känner", "kände", "känt", "to feel, to know (a person)"], ["glömma", "glömmer", "glömde", "glömt", "to forget"], ["komma ihåg", "kommer ihåg", "kom ihåg", "kommit ihåg", "to remember"], ["bestämma", "bestämmer", "bestämde", "bestämt", "to decide"], ["välja", "väljer", "valde", "valt", "to choose"], ["försöka", "försöker", "försökte", "försökt", "to try"], ["hoppas", "hoppas", "hoppades", "hoppats", "to hope"], ["hjälpa", "hjälper", "hjälpte", "hjälpt", "to help"], ["behöva", "behöver", "behövde", "behövt", "to need"], ["använda", "använder", "använde", "använt", "to use"], ["besöka", "besöker", "besökte", "besökt", "to visit"], ["söka", "söker", "sökte", "sökt", "to search for, to apply for"], ["flytta", "flyttar", "flyttade", "flyttat", "to move (house)"], ["leva", "lever", "levde", "levt", "to be alive, to live"], ["sluta", "slutar", "slutade", "slutat", "to stop, to quit"], ["vänta", "väntar", "väntade", "väntat", "to wait"], ["skratta", "skrattar", "skrattade", "skrattat", "to laugh"], ["be", "ber", "bad", "bett", "to ask for, to request"], ["lära", "lär", "lärde", "lärt", "to teach"]]}, {"id": 4, "name": "More verbs", "verbs": [["bära", "bär", "bar", "burit", "to carry, to wear"], ["dra", "drar", "drog", "dragit", "to pull"], ["hålla", "håller", "höll", "hållit", "to hold"], ["hinna", "hinner", "hann", "hunnit", "to have time to"], ["njuta", "njuter", "njöt", "njutit", "to enjoy"], ["sjunga", "sjunger", "sjöng", "sjungit", "to sing"], ["slå", "slår", "slog", "slagit", "to hit, to beat"], ["springa", "springer", "sprang", "sprungit", "to run"], ["vinna", "vinner", "vann", "vunnit", "to win"], ["förlora", "förlorar", "förlorade", "förlorat", "to lose"], ["beskriva", "beskriver", "beskrev", "beskrivit", "to describe"], ["passa", "passar", "passade", "passat", "to fit, to suit"], ["sälja", "säljer", "sålde", "sålt", "to sell"], ["leka", "leker", "lekte", "lekt", "to play (as children do)"], ["följa", "följer", "följde", "följt", "to follow"], ["höra", "hör", "hörde", "hört", "to hear"], ["lägga", "lägger", "lade", "lagt", "to lay, to put down"], ["sätta", "sätter", "satte", "satt", "to put, to set"], ["finnas", "finns", "fanns", "funnits", "to exist, to be (there)"], ["nå", "når", "nådde", "nått", "to reach"], ["tro", "tror", "trodde", "trott", "to believe"], ["må", "mår", "mådde", "mått", "to feel (well or unwell)"], ["klä", "klär", "klädde", "klätt", "to dress"], ["sy", "syr", "sydde", "sytt", "to sew"], ["visa", "visar", "visade", "visat", "to show"], ["bygga", "bygger", "byggde", "byggt", "to build"], ["stanna", "stannar", "stannade", "stannat", "to stay, to stop"], ["räkna", "räknar", "räknade", "räknat", "to count, to calculate"], ["ändra", "ändrar", "ändrade", "ändrat", "to change (alter)"], ["låna", "lånar", "lånade", "lånat", "to borrow, to lend"]]}];
 const GROUPS_VOCAB=[{"id": 1, "name": "Applications, library and officialese", "words": [["referensperson", "reference person"], ["arbetslivserfarenhet", "work experience"], ["fritidsintressen", "leisure interests"], ["andraspråk", "second language (as a subject)"], ["självständigt", "independently"], ["bemanning", "staffing"], ["förseningsavgift", "late fee"], ["legitimation", "photo ID"], ["nybörjarnivå", "beginner level"], ["avancerad", "advanced"], ["återlämna", "to return (an item)"], ["spärra", "to block, to freeze (a card)"], ["giltig", "valid"], ["återbetalas", "to be refunded"], ["ombokas", "to be rebooked"], ["handledare", "supervisor"], ["anställd", "employee"], ["arbetsuppgift", "task, job duty"], ["praktikplats", "work placement, internship site"], ["renovera", "to renovate"], ["tillverka", "to manufacture"], ["matsalsmöbel", "dining room furniture"], ["betyg", "grade, mark"], ["huvudsak", "main thing"], ["ansvar", "responsibility"], ["självsäker", "self-confident"], ["nyfiken", "curious"], ["upptäcka", "to discover"], ["uttrycka sig", "to express oneself"], ["ingå", "to be included"]]}, {"id": 2, "name": "Food, hospitality and places to stay", "words": [["husmanskost", "traditional home cooking"], ["skaldjursgryta", "seafood stew"], ["saffranskryddad", "saffron-spiced"], ["remouladsås", "remoulade sauce"], ["lingonsylt", "lingonberry jam"], ["gräddsås", "cream sauce"], ["klyftpotatis", "potato wedges"], ["måltidsdryck", "included meal drink"], ["salladsbuffé", "salad buffet"], ["avhämtning", "takeaway, pickup"], ["livsmedel", "groceries, foodstuffs"], ["husvagn", "caravan"], ["barnvänlig", "child-friendly"], ["vandrarhem", "hostel"], ["enkelrum", "single room"], ["öppettider", "opening hours"], ["entré", "entrance fee"], ["kalas", "party, celebration"], ["sommarstuga", "summer cottage"], ["vintersäsong", "winter season"], ["fikavecka", "the week it's your turn to bring coffee snacks"], ["kollega", "colleague"], ["lön", "salary"], ["starta eget", "to start one's own business"], ["företag", "company"], ["kund", "customer"], ["buffé", "buffet"], ["avgift", "fee"], ["gratis", "free of charge"], ["jobbig", "tough, annoying, a hassle"]]}, {"id": 3, "name": "Everyday nouns and adjectives", "words": [["balkong", "balcony"], ["utsikt", "view"], ["pendling", "commuting"], ["radhus", "terraced house"], ["uppvuxen", "raised, grew up"], ["skillnad", "difference"], ["generation", "generation"], ["tidigare", "previously, earlier"], ["rensa", "to clean, to sort (berries, produce)"], ["fixa", "to fix, to sort out (informal)"], ["energi", "energy"], ["otroligt", "incredibly"], ["trädgårdsland", "vegetable garden plot"], ["grönsaker", "vegetables"], ["längta", "to long for, to yearn"], ["aktivitet", "activity"], ["förening", "association, club"], ["medlemsavgift", "membership fee"], ["intresse", "interest"], ["nyinflyttad", "newly moved in"], ["lugn", "calm"], ["ensam", "lonely, alone"], ["succé", "success, hit"], ["panik", "panic"], ["lexikon", "dictionary"], ["öppen", "open (personality)"], ["idé", "idea"], ["gratulera", "to congratulate"], ["lämna återbud", "to decline an invitation"], ["sjukanmäla sig", "to call in sick"]]}, {"id": 4, "name": "Museums, transport and civic topics", "words": [["meddela försening", "to notify of a delay"], ["besökare", "visitor"], ["forntid", "ancient times"], ["myt", "myth"], ["hjälte", "hero"], ["konstverk", "work of art"], ["friluftsmuseum", "open-air museum"], ["smådjur", "small animals"], ["utmana", "to challenge"], ["bevarad", "preserved"], ["unikt", "unique"], ["tidtabell", "timetable"], ["kollektivtrafik", "public transport"], ["andrahand", "secondhand"], ["andel", "proportion, share"], ["åldersgrupp", "age group"], ["användning", "use, usage"], ["brott", "crime"], ["allvarlig", "serious"], ["hjälm", "helmet"], ["ungdom", "young person, youth"], ["kopiera", "to copy"], ["lånekort", "library card"], ["omlån", "loan renewal"], ["skåp", "cabinet, cupboard"], ["stressig", "stressful"], ["bråttom", "in a hurry"], ["tacka för senast", "to thank someone for a previous visit"], ["glad", "cheerful, happy"], ["vänlig", "friendly, kind"]]}, {"id": 5, "name": "From the Skolverket example tasks", "words": [["vardagsanknuten", "connected to everyday life"], ["mångfald", "diversity"], ["likabehandling", "equal treatment"], ["jämställdhet", "gender equality"], ["arbetsro", "peace and quiet to work or study"], ["rådgivning", "advice, counselling"], ["skolledning", "school management"], ["bemöta", "to respond to, to counter"], ["tankekarta", "mind map"], ["prioritera", "to prioritise"], ["ordningsam", "orderly, well organised"], ["lagom", "just the right amount"], ["hindra", "to prevent, to hinder"], ["tramsa", "to fool around"], ["less", "fed up (less på)"], ["visserligen", "admittedly, it is true that"], ["fokusera", "to focus"], ["gemenskap", "fellowship, sense of belonging"], ["utbildning", "education, training"], ["erfarenhet", "experience"], ["åsikt", "opinion"], ["spökvandring", "ghost walk"], ["föreställning", "show, performance"], ["begränsat", "limited"], ["framföra", "to perform, to present"], ["lättläst", "written in easy, plain language"], ["ledig", "vacant, free, available"], ["sovsal", "dormitory"], ["nyval", "menu option (phone menu)"], ["samhällskunskap", "social studies"]]}, {"id": 6, "name": "Common adjectives", "words": [["stor", "big, large"], ["liten", "small, little"], ["bra", "good"], ["dålig", "bad, poor (quality)"], ["ny", "new"], ["gammal", "old"], ["vacker", "beautiful"], ["ful", "ugly"], ["snäll", "kind, nice"], ["elak", "mean, nasty"], ["stark", "strong"], ["svag", "weak"], ["snabb", "fast, quick"], ["långsam", "slow"], ["hög", "high, tall"], ["låg", "low"], ["djup", "deep"], ["grund", "shallow"], ["tung", "heavy"], ["lätt", "light, easy"], ["svår", "difficult, hard"], ["enkel", "simple"], ["rolig", "fun, funny"], ["tråkig", "boring"], ["viktig", "important"], ["onödig", "unnecessary"], ["rik", "rich"], ["fattig", "poor"], ["ren", "clean"], ["smutsig", "dirty"]]}, {"id": 7, "name": "Common nouns", "words": [["hus", "house"], ["lägenhet", "apartment"], ["rum", "room"], ["kök", "kitchen"], ["dörr", "door"], ["fönster", "window"], ["golv", "floor"], ["tak", "ceiling, roof"], ["vägg", "wall"], ["trappa", "stairs"], ["gata", "street"], ["väg", "road, way"], ["stad", "city, town"], ["by", "village"], ["land", "country"], ["himmel", "sky"], ["sol", "sun"], ["måne", "moon"], ["stjärna", "star"], ["moln", "cloud"], ["regn", "rain"], ["snö", "snow"], ["vind", "wind"], ["is", "ice"], ["eld", "fire"], ["vatten", "water"], ["jord", "earth, soil"], ["skog", "forest"], ["berg", "mountain"], ["sjö", "lake"]]}];
 const COLLS={
   verb:{key:'verb',label:'Verbs',labelSing:'verb',itemsLabel:'verbs',groups:GROUPS_VERB,itemsKey:'verbs',
-    forms:[{key:'infinitive',label:'infinitive'},{key:'present',label:'present'},{key:'past',label:'preteritum'}],enIndex:3,
+    forms:[{key:'infinitive',label:'infinitive'},{key:'present',label:'present'},{key:'past',label:'preteritum'},{key:'supine',label:'supinum'}],enIndex:4,
     conflicts:[['arbeta','jobba'],['tala','prata'],['åka','resa','köra','cykla'],['tycka','tänka'],['lägga','sätta']]},
   vocab:{key:'vocab',label:'Vocabulary',labelSing:'word',itemsLabel:'words',groups:GROUPS_VOCAB,itemsKey:'words',
     forms:[{key:'word',label:''}],enIndex:1,conflicts:[]}
@@ -257,7 +263,7 @@ const gById=(c,id)=>c.groups.find(g=>g.id===id);
    devices, and reopening the link). A backup code is the manual, always-
    available third option. */
 const KEY='langLab.v2';
-const DEFAULT_SETTINGS={voice:'',rate:1,audio:true,fast:false,enAudio:false,wake:false,loopSrc:'all',loopStyle:'retrieval',loopPause:2,loopShuffle:true};
+const DEFAULT_SETTINGS={voice:'',rate:1,audio:true,fast:false,enAudio:false,wake:false,loopSrc:'all',loopStyle:'retrieval',loopPause:2,loopShuffle:true,loopFocusOnly:false};
 function emptyState(){return {verb:{groups:{}},vocab:{groups:{}},settings:Object.assign({},DEFAULT_SETTINGS)};}
 let S=emptyState();
 try{
@@ -461,12 +467,72 @@ function say(text,lang){
     }catch(e){fin();}
   });
 }
-function loopItems(){
+/* ---- loop focus marks (used only by the loop): 'practice more' items repeat
+   extra times per lap; 'I know this' items are left out. Stored in S.marks so
+   they sync and travel with the backup code. ---- */
+const FOCUS_COPIES=2; /* a practice-more item plays this many times per lap */
+const M=()=>{S.marks=S.marks||{};S.marks.focus=S.marks.focus||{};S.marks.known=S.marks.known||{};return S.marks;};
+const mkey=it=>it.c+':'+it.e[0];
+const isFocus=it=>!!M().focus[mkey(it)];
+const isKnown=it=>!!M().known[mkey(it)];
+function allLoopItems(){
   const src=S.settings.loopSrc,out=[];
   Object.values(COLLS).forEach(c=>{if(src==='all'||src===c.key)c.groups.forEach(g=>itemsOf(c,g).forEach(e=>out.push({c:c.key,e})));});
-  return S.settings.loopShuffle?shuffled(out):out;
+  return out;
 }
-function loopShow(it,st,prompt,cls){const c=COLLS[it.c];setEn(enOf(c,it.e));setCenter(formRowsHTML(c,it.e,st));setPrompt(prompt,cls);}
+function loopPool(){ /* items eligible for the loop, before extra copies */
+  let a=allLoopItems().filter(it=>!isKnown(it));
+  if(S.settings.loopFocusOnly)a=a.filter(isFocus);
+  return a;
+}
+function loopItems(){
+  const base=loopPool();
+  const extra=[];
+  base.forEach(it=>{if(isFocus(it))for(let k=1;k<FOCUS_COPIES;k++)extra.push(it);});
+  let out=base.concat(extra);
+  if(S.settings.loopShuffle){
+    out=shuffled(out);
+    for(let i=1;i<out.length;i++){ /* avoid the same item twice in a row */
+      if(mkey(out[i])===mkey(out[i-1])){const j=(i+1<out.length)?i+1:i-2;if(j>=0&&j<out.length)[out[i],out[j]]=[out[j],out[i]];}
+    }
+  }
+  return out;
+}
+function markLabelsHTML(){
+  const it=LP&&LP.items[LP.i];
+  const f=it&&isFocus(it);
+  return '<button class="btn mk" id="mkFocus" data-act="mkFocus" aria-pressed="'+(!!f)+'">'+(f?'★ Practicing more (tap to undo)':'★ Practice this more')+'</button>'+
+    '<button class="btn mk" id="mkKnown" data-act="mkKnown">✓ I know this, skip it</button>';
+}
+function refreshMarkUI(){
+  const b=$('#mkWrap');if(b)b.innerHTML=markLabelsHTML();
+  const it=LP&&LP.items[LP.i],e=$('#en');
+  if(it&&e&&isFocus(it)&&!e.querySelector('.star'))e.insertAdjacentHTML('beforeend','<span class="star" title="Practice more">★</span>');
+  if(it&&e&&!isFocus(it)){const s=e.querySelector('.star');if(s)s.remove();}
+}
+function loopMark(kind){
+  if(!LP)return;
+  const it=LP.items[LP.i];if(!it)return;
+  const k=mkey(it),m=M();
+  if(kind==='focus'){
+    if(m.focus[k]){ /* undo: drop the extra copies still ahead in this lap */
+      delete m.focus[k];
+      for(let j=LP.items.length-1;j>LP.i;j--)if(mkey(LP.items[j])===k)LP.items.splice(j,1);
+    }else{
+      delete m.known[k];m.focus[k]=1;
+      const ahead=LP.items.length-LP.i-1;
+      for(let c2=1;c2<FOCUS_COPIES;c2++){const pos=LP.i+1+Math.floor(Math.random()*(ahead+1));LP.items.splice(pos,0,it);}
+    }
+    save();refreshMarkUI();
+  }else{
+    delete m.focus[k];m.known[k]=1;
+    for(let j=LP.items.length-1;j>=0;j--){ /* remove every other copy; current one is passed over */
+      if(j!==LP.i&&mkey(LP.items[j])===k){LP.items.splice(j,1);if(j<LP.i)LP.i--;}
+    }
+    save();loopJump(1);
+  }
+}
+function loopShow(it,st,prompt,cls){const c=COLLS[it.c];setEn(enOf(c,it.e));setCenter(formRowsHTML(c,it.e,st));setPrompt(prompt,cls);refreshMarkUI();}
 async function loopItem(it){
   const c=COLLS[it.c],nf=c.forms.length,P=S.settings.loopPause*1000,teach=S.settings.loopStyle==='teach';
   const ok=()=>LP&&!LP.abort&&!LP.jump;
@@ -493,32 +559,46 @@ async function loopRun(){
     if(!LP||LP.abort)break;
     const n=LP.items.length;
     if(LP.jump){LP.i=(LP.i+LP.jump+n)%n;LP.jump=0;}
-    else if(++LP.i>=n){LP.i=0;LP.lap++;if(S.settings.loopShuffle)LP.items=shuffled(LP.items);}
+    else if(++LP.i>=n){
+      LP.i=0;LP.lap++;LP.items=loopItems();
+      if(!LP.items.length){renderLoop();return;}
+    }
   }
 }
 function stopLoop(){if(LP){LP.abort=true;LP=null;try{speechSynthesis.cancel();}catch(e){}releaseWake();}}
 function loopStart(){
+  const first=loopItems();
+  if(!first.length){renderLoop('Nothing to loop yet. Mark some items with ★ while the loop is running, or turn off “Only my ★ items”.');return;}
   unlockAudio();requestWake();
-  LP={items:loopItems(),i:0,lap:1,paused:false,abort:false,jump:0};
+  LP={items:first,i:0,lap:1,paused:false,abort:false,jump:0};
   view={name:'loop',coll:view.coll};
   app().innerHTML='<div class="stage"><div class="hud"><span id="hudL"></span><span class="sp" id="hudR"></span></div>'+
    '<div class="sbody"><div class="en" id="en"></div><div class="center" id="center"></div><div class="notes" id="notes"></div><div class="prompt" id="prompt"></div></div><div class="tbar"><i id="bar"></i></div></div>'+
-   '<div class="ctl"><button class="btn" data-act="loopPrev">◀ Previous</button><button class="btn primary" id="loopPauseB" data-act="loopPause">Pause</button><button class="btn" data-act="loopNext">Next ▶</button><button class="btn" data-act="loopStop">Stop</button></div>';
+   '<div class="ctl"><button class="btn" data-act="loopPrev">◀ Previous</button><button class="btn primary" id="loopPauseB" data-act="loopPause">Pause</button><button class="btn" data-act="loopNext">Next ▶</button><button class="btn" data-act="loopStop">Stop</button></div>'+
+   '<div class="ctl2" id="mkWrap">'+markLabelsHTML()+'</div>';
   window.scrollTo(0,0);loopRun();
 }
 function loopJump(d){if(!LP)return;LP.jump=d;LP.paused=false;const b=$('#loopPauseB');if(b)b.textContent='Pause';try{speechSynthesis.cancel();}catch(e){}}
-function renderLoop(){
+function renderLoop(msg){
   stopLoop();
   view={name:'loophome',coll:view.coll||'verb'};
-  const s=S.settings,cnt=k=>COLLS[k].groups.reduce((a,g)=>a+itemsOf(COLLS[k],g).length,0);
+  const s=S.settings,m=M(),cnt=k=>COLLS[k].groups.reduce((a,g)=>a+itemsOf(COLLS[k],g).filter(e=>!m.known[k+':'+e[0]]).length,0);
+  const marked=kind=>{const out=[];Object.keys(m[kind]).forEach(k=>{const i=k.indexOf(':'),ck=k.slice(0,i),w=k.slice(i+1);if(COLLS[ck])out.push({k,w});});return out;};
+  const fl=marked('focus'),kl=marked('known');
+  const listHTML=(arr,kind,empty)=>arr.length?'<ul class="mklist">'+arr.map(x=>'<li><span class="sv">'+esc(x.w)+'</span><button class="btn small" data-act="unmark" data-kind="'+kind+'" data-k="'+esc(x.k)+'">Remove</button></li>').join('')+'</ul>':'<p class="hint" style="margin:6px 0 0">'+empty+'</p>';
   const o=(v,t,cur)=>'<option value="'+v+'"'+(String(cur)===String(v)?' selected':'')+'>'+t+'</option>';
   app().innerHTML=tabsHTML()+settingsHTML()+'<div class="panel"><h2>Listening loop</h2><div class="in paras">'+
-   '<p>Hands-free practice for walking or working. You hear the English word, get a moment to say the Swedish aloud, then hear the Swedish (verbs: infinitive, present, preteritum). It repeats through everything until you stop it.</p>'+
+   '<p>Hands-free practice for walking or working. You hear the English word, get a moment to say the Swedish aloud, then hear the Swedish (verbs: infinitive, present, preteritum, supinum). It repeats through everything until you stop it.</p>'+
+   '<p>While it plays, tap <b>★ Practice this more</b> to have an item come round '+FOCUS_COPIES+' times per lap, or <b>✓ I know this</b> to drop it from the loop. These marks only affect the loop.</p>'+(msg?'<p class="banner warn">'+esc(msg)+'</p>':'')+
    '<div class="settings"><label>Loop <select id="loopSrc">'+o('all','Everything ('+(cnt('verb')+cnt('vocab'))+' items)',s.loopSrc)+o('verb','Verbs only ('+cnt('verb')+')',s.loopSrc)+o('vocab','Vocabulary only ('+cnt('vocab')+')',s.loopSrc)+'</select></label>'+
    '<label>Style <select id="loopStyle">'+o('retrieval','English, pause, then Swedish',s.loopStyle)+o('teach','English, Swedish, then pause to repeat',s.loopStyle)+'</select></label>'+
    '<label>Pause <select id="loopPause">'+o(2,'2 seconds',s.loopPause)+o(3,'3 seconds',s.loopPause)+o(4,'4 seconds',s.loopPause)+'</select></label>'+
-   '<label><input type="checkbox" id="loopShuffle"'+(s.loopShuffle?' checked':'')+'> Shuffle</label></div>'+
+   '<label><input type="checkbox" id="loopShuffle"'+(s.loopShuffle?' checked':'')+'> Shuffle</label>'+
+   '<label><input type="checkbox" id="loopFocusOnly"'+(s.loopFocusOnly?' checked':'')+'> Only my ★ items ('+fl.length+')</label></div>'+
    '<p style="margin-top:14px"><button class="btn primary" data-act="loopStart">Start loop</button></p>'+
+   '<details style="margin:14px 0 0"><summary>My loop marks ('+fl.length+' ★, '+kl.length+' skipped)</summary>'+
+   '<p style="margin:8px 0 0"><b>★ Practice more</b></p>'+listHTML(fl,'focus','None yet.')+
+   '<p style="margin:12px 0 0"><b>✓ Skipped (I know these)</b></p>'+listHTML(kl,'known','None yet.')+'</details>'+
    '<p class="hint">Phones usually stop speech when the screen locks. Turn on “Keep screen awake” above and dim the screen instead of locking it.</p></div></div>';
   loadVoices();updateSyncUI();
 }
@@ -598,7 +678,7 @@ function howHTML(c){
   '<p><b>Schedule.</b> Day 1: pre-test, one teaching block, one retrieval block. Then a retrieval block after gaps of 2, 6 and 8 days (Days 3, 9 and 17), a post-test one day later (Day 18) and another 10 days after that (Day 28). The dates on this page count the gaps from the day you actually finished the previous step, so a late start does not break the spacing.</p>'+
   '<p><b>Trial timing.</b> In the paper a trial lasted 4.5 s: a fixation cross for 1 s, the first-language word from 0.5 s, the translation with audio at 1.0 s for 1.5 s, then a 2 s window to repeat it. Retrieval trials swap the order: a 2 s window to say the word first, then the word and audio as feedback for 1.5 s. Tests lasted 5 s: the word shown and played at 0.5 s and two answer options from 1.0 s.</p>'+
   '<p><b>My adaptations.</b></p><ul>'+
-  (c.forms.length>1?'<li>Each trial here is one verb with three forms. Every form gets the paper’s single-word timing (1.5 s to hear it, 2 s to say it), so a trial is '+tl+' s instead of 4.5 s.</li>':'<li>Each trial here is one word with a single Swedish form, so it follows the paper’s single-word timing directly: 1.5 s to hear it, 2 s to say it, for a '+tl+' s trial (versus the paper’s 4.5 s, which also included the extra time to first show the first-language cue).</li>')+
+  (c.forms.length>1?'<li>Each trial here is one verb with four forms. Every form gets the paper’s single-word timing (1.5 s to hear it, 2 s to say it), so a trial is '+tl+' s instead of 4.5 s.</li>':'<li>Each trial here is one word with a single Swedish form, so it follows the paper’s single-word timing directly: 1.5 s to hear it, 2 s to say it, for a '+tl+' s trial (versus the paper’s 4.5 s, which also included the extra time to first show the first-language cue).</li>')+
   '<li>English is the prompt language and Swedish the target, so the instructions are in English, as they were in the learners’ first language in the paper.</li>'+
   '<li>The paper does not say exactly where the prompt sits in a retrieval trial. I placed it right after the fixation cross, which is my reading of “reversed order”.</li>'+
   '<li>Audio comes from a Swedish voice on your device, not a recorded native speaker. Quality varies by device.</li>'+
@@ -638,10 +718,10 @@ function renderHome(collKey){
 function instrText(c,kind){
   const noun=c.forms.length>1?'verb':'word';
   if(kind==='study')return c.forms.length>1?
-    ['You will see an English verb. Then you will see and hear its Swedish infinitive, present and preteritum forms, one after another.','After each form, say it aloud in Swedish.','Each verb takes '+TRIAL_LEN(c)+' seconds. The screen moves on by itself.']:
+    ['You will see an English verb. Then you will see and hear its Swedish infinitive, present, preteritum and supinum forms, one after another.','After each form, say it aloud in Swedish.','Each verb takes '+TRIAL_LEN(c)+' seconds. The screen moves on by itself.']:
     ['You will see an English word. Then you will see and hear its Swedish translation, with pronunciation.','Say it aloud in Swedish.','Each word takes '+TRIAL_LEN(c)+' seconds. The screen moves on by itself.'];
   if(kind==='retrieval')return c.forms.length>1?
-    ['You will see an English verb. For each of its three Swedish forms you will be asked to say it aloud, and you get 2 seconds for that.','Then you will see and hear the correct form.','Try to answer before the correct form appears, even if you are not sure. Retrieving the word yourself is what this block is for. Each verb takes '+TRIAL_LEN(c)+' seconds.']:
+    ['You will see an English verb. For each of its four Swedish forms you will be asked to say it aloud, and you get 2 seconds for that.','Then you will see and hear the correct form.','Try to answer before the correct form appears, even if you are not sure. Retrieving the word yourself is what this block is for. Each verb takes '+TRIAL_LEN(c)+' seconds.']:
     ['You will see an English word and be asked to say the Swedish translation aloud, with 2 seconds to do it.','Then you will see and hear the correct Swedish word.','Try to answer before the correct word appears, even if you are not sure. Retrieving the word yourself is what this block is for. Each word takes '+TRIAL_LEN(c)+' seconds.'];
   return ['You will see and hear a Swedish '+noun+', with two English options below it on the left and right.','Press the left or right arrow key, or tap an option, to choose the meaning that matches. The options appear after 1 second and each item lasts 5 seconds.','You get no feedback during the test.'];
 }
@@ -831,6 +911,9 @@ document.addEventListener('click',e=>{
   else if(act==='loopStop'){renderLoop();}
   else if(act==='loopPrev'){loopJump(-1);}
   else if(act==='loopNext'){loopJump(1);}
+  else if(act==='mkFocus'){loopMark('focus');}
+  else if(act==='mkKnown'){loopMark('known');}
+  else if(act==='unmark'){delete M()[b.dataset.kind][b.dataset.k];save();renderLoop();}
   else if(act==='loopPause'&&LP){LP.paused=!LP.paused;b.textContent=LP.paused?'Resume':'Pause';}
   else if(act==='step'){
     const st=STEPS.find(s=>s.id===b.dataset.s);
@@ -872,6 +955,7 @@ document.addEventListener('change',e=>{
   else if(e.target.id==='loopStyle'){S.settings.loopStyle=e.target.value;save();}
   else if(e.target.id==='loopPause'){S.settings.loopPause=parseFloat(e.target.value)||2;save();}
   else if(e.target.id==='loopShuffle'){S.settings.loopShuffle=e.target.checked;save();}
+  else if(e.target.id==='loopFocusOnly'){S.settings.loopFocusOnly=e.target.checked;save();}
 });
 document.addEventListener('click',e=>{
   if(e.target.id==='voiceTest'){unlockAudio();speak('arbetar');}
