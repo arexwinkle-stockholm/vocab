@@ -3110,6 +3110,7 @@ function settingsHTML(){
    '<p>Items you rate Again or Hard in a retrieval block, or tap Hard on in the loop, go into the deck. Each card is scheduled by FSRS, the open scheduling algorithm that Anki offers, using its default settings. Those defaults were fitted to Anki users’ flashcard reviews, not to this app or to Swedish, and I have not tested how well they suit this material.</p>'+
    '<p>The paper’s fixed schedule is unchanged and runs separately. The deck only covers the items you flag. Ratings are your own judgement: nothing checks what you say aloud. Cards are due by calendar day, so a card due today stays due until you review it.</p>'+
    '</div></details></div></section>'+
+   '<section class="sec"><h2>Reset</h2><div class="dz"><p><b>Reset all progress</b><small>Erases every group, the review deck, loop marks, practice history and rewards, on this device and in your synced copy if sync is on. Your sound settings stay. Copy a backup code first if you might want this back.</small></p><button class="btn small danger" data-act="resetAll">Reset everything</button></div></section>'+
    '<section class="sec"><h2>Backup</h2><div class="bk"><p class="hint">Copy this code somewhere safe and paste it back in on any device to restore your progress. It works without account sync and includes your review deck and loop marks.</p>'+
    '<p><button class="btn small" id="codeCopy">Copy my backup code</button></p>'+
    '<p><label for="codeIn" class="hint" style="display:block;margin-bottom:4px">Paste a backup code here to restore it</label>'+
@@ -3167,6 +3168,14 @@ function renderHome(collKey){
   loadVoices();updateSyncUI();
 }
 
+function resetAll(){
+  stopRun();
+  const keep=S.settings;
+  S=emptyState();S.settings=Object.assign({},DEFAULT_SETTINGS,keep||{});ensureNoun();
+  trkPending=0;rwEdit=null;deckAll=false;
+  try{localStorage.removeItem(KEY);localStorage.removeItem('verbLab.v1');}catch(e){}
+  save();renderMenu();
+}
 /* ---------- shared view helpers ---------- */
 const LINE={verb:'--hue-verb',pv:'--hue-pv',noun:'--hue-noun',adj:'--hue-adj',vocab:'--hue-vocab',sent:'--hue-sent'};
 const CODE={verb:'V',pv:'PV',noun:'N',adj:'A',vocab:'W',sent:'S'};
@@ -3643,6 +3652,7 @@ document.addEventListener('click',e=>{
   const act=b.dataset.act,ck=b.dataset.c,gid=+b.dataset.g;
   if(act==='menu'){stopLoop();renderMenu();}
   else if(act==='settings'){renderSettings();}
+  else if(act==='resetAll'){armBtn(b,()=>{resetAll();},'Tap again to erase everything');}
   else if(act==='progressTab'){stopRun();renderProgress();}
   else if(act==='rewardSave'){rewardSave();}
   else if(act==='rewardEdit'){rwEdit=b.dataset.id;renderProgress(true);const f=$('#rwText');if(f){f.scrollIntoView({block:'center'});f.focus();}}
